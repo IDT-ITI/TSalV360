@@ -33,7 +33,7 @@ For the VR-Eyetracking dataset, you can download the videos following the instru
 The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)(zenodo link)
 
 ### Frames Extraction
-The Sports-360 data are already in '.jpg' files. The video used from VR-EyeTracking can be found [here](dataset/vreyetracking.json) and the Sports-360 dataset [here](dataset/sports360.json). 
+The Sports-360 data are already in '.jpg' files. The videos used from VR-EyeTracking can be found [here](dataset/vreyetracking.json) and the Sports-360 dataset [here](dataset/sports360.json). 
 To extract frames from the VR-Eyetracking videos, run the following command:
 ```
 python dataset/frames_extractor.py --videos_path="path_to_videos"
