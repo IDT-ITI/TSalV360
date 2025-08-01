@@ -4,8 +4,18 @@
 * The TSV360 can be used for training and evaluating deep-learning models for text guided 360-degree video saliency task. 
 * Our approach, TSalV360 can be used for forming the basis for future comparisons in the field of text-driven 360-degree video saliency detection.
 
+## Installation
+To generate the TSV360 dataset and/or use the TSalV360 approach, first clone the repository:
+```
+git clone https://github.com/IDT-ITI/TSalV360
+```
+Create and activate Conda environment
 
-## TSV360 Dataset
+```
+conda env create -f env.yml
+conda activate tsalv360
+```
+## A. TSV360 Dataset
 
 TSV360 is a dataset for text guided 360-degree video saliency detection.
 
@@ -22,19 +32,7 @@ Finally, we perform manual curation to validate and refine the generated content
 For the VR-Eyetracking dataset, you can download the videos following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). For the videos used from Sports-360 dataset, you can download them from [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). If you are unable to download them, contant us at ioankont@iti.gr. 
 The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)
 
-## Installation
-Clone the repository
-
-```
-git clone https://github.com/IDT-ITI/TSalV360
-```
-Create and activate Conda environment
-
-```
-conda env create -f env.yml
-conda activate tsalv360
-```
-## Frames Extraction
+### Frames Extraction
 The Sports-360 data are already in '.jpg' files. The video names used from VR-EyeTracking can be found here (link) and the Sports-360 dataset here (link). 
 To extract frames from the VR-Eyetracking videos, place the folder containing the videos inside the dataset folder and run the following command:
 
@@ -42,37 +40,34 @@ To extract frames from the VR-Eyetracking videos, place the folder containing th
 python dataset/frames_extraction.py --videos_path="path_to_videos"
 ```
 
-## Data Reproduction
 
-TBA
-
-## TSalV360 approach
+## B. TSalV360 approach
 
 This repository implements TSalV360, a method for text-guided saliency detection in 360-degree videos. It includes the full TSalV360 architecture along with the setup required to train and evaluate the model.
 
 
 ### Dataset Preparation
 
-Download the **TSV360** dataset—containing the generated ground-truth saliency maps and text descriptions—and place it inside the main folder [link]).
+Download the TSV360 dataset—containing the generated ground-truth saliency maps and text descriptions—and place it inside the main folder [link]).
 After extracting the frames from the videos in both the VR-Eyetracking and Sports-360 datasets, place all the frames together in a single folder.
 
 
-### Train model
+### Training stage
 
-To train the TSalV360, edit train.yml file (here) by updating the relevant paths—specifically, the paths to the `path_text_saliency_maps` (downloaded from Zenodo) and the extracted frames `path_to_erp_frames` (following *Frame Extraction* section) then run the following command:
+To train a model, edit train.yml file (here) by updating the relevant paths—specifically, the paths to the `path_text_saliency_maps` (downloaded from Zenodo) and the extracted frames `path_to_erp_frames` (following *Frame Extraction* section) then run the following command:
 
 ```
 python train.py
 ```
 
-### Inference model
+### Inferenfe stage
 
-To run inference with the TSalV360 method using a pretrained [model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing), provide the path to the 360-degree video and a corresponding text input as parameters:
+To use a trained model—or a provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—you need to provide the following as input parameters:
 
 ```
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
 ```
-
+Where
 ## Licence
 
 This code is provided for academic, non-commercial use only. Please also check for any restrictions applied in the code parts and datasets used here from other sources. For the materials not covered by any such restrictions, redistribution and use in source and binary forms, with or without modification, are permitted for academic non-commercial use provided that the following conditions are met:
@@ -84,7 +79,6 @@ This software is provided by the authors "as is" and any express or implied warr
 ## Citation
 
 ## Acknowledgements
-
 This work was supported by the EU's Horizon Europe programme under grant aggreement 101070109 TransMIXR.
 
 
