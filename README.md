@@ -30,44 +30,38 @@ These 2D video segments are then passed through a video-language model to genera
 Finally, we perform manual curation to validate and refine the generated content, resulting in triplets of ERP frames, saliency maps, and text descriptions—each aligned to a specific event within the 360-degree video.
 
 For the VR-Eyetracking dataset, you can download the videos following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). For the videos used from Sports-360 dataset, you can download them from [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). If you are unable to download them, contant us at ioankont@iti.gr. 
-The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)
+The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)(zenodo link)
 
 ### Frames Extraction
-The Sports-360 data are already in '.jpg' files. The video names used from VR-EyeTracking can be found here (link) and the Sports-360 dataset here (link). 
-To extract frames from the VR-Eyetracking videos, place the folder containing the videos inside the dataset folder and run the following command:
-
+The Sports-360 data are already in '.jpg' files. The video names used from VR-EyeTracking can be found [here](dataset/vreyetracking.json) and the Sports-360 dataset [here](dataset/sports360.json). 
+To extract frames from the VR-Eyetracking videos, run the following command:
 ```
-python dataset/frames_extraction.py --videos_path="path_to_videos"
+python dataset/frames_extractor.py --videos_path="path_to_videos"
 ```
-
 
 ## B. TSalV360 approach
 
 This repository implements TSalV360, a method for text-guided saliency detection in 360-degree videos. It includes the full TSalV360 architecture along with the setup required to train and evaluate the model.
 
-
 ### Dataset Preparation
 
-Download the TSV360 dataset—containing the generated ground-truth saliency maps and text descriptions—and place it inside the main folder [link]).
+Download the T360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. T360 Dataset.
 After extracting the frames from the videos in both the VR-Eyetracking and Sports-360 datasets, place all the frames together in a single folder.
 
-
 ### Training stage
-
-To train a model, edit train.yml file (here) by updating the relevant paths—specifically, the paths to the `path_text_saliency_maps` (downloaded from Zenodo) and the extracted frames `path_to_erp_frames` (following *Frame Extraction* section) then run the following command:
+To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (downloaded from Zenodo) and the extracted frames `path_to_erp_frames` (folder created in the above Dataset Preparation subsection) then run the following command:
 
 ```
 python train.py
 ```
 
-### Inferenfe stage
+### Inference stage
 
 To use a trained model—or a provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—you need to provide the following as input parameters:
 
 ```
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
 ```
-Where
 ## Licence
 
 This code is provided for academic, non-commercial use only. Please also check for any restrictions applied in the code parts and datasets used here from other sources. For the materials not covered by any such restrictions, redistribution and use in source and binary forms, with or without modification, are permitted for academic non-commercial use provided that the following conditions are met:
