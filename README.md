@@ -45,8 +45,8 @@ This repository implements TSalV360, a method for text-guided saliency detection
 
 ### Dataset Preparation
 
-Download the T360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. T360 Dataset.
-After extracting the frames from the videos in both the VR-Eyetracking and Sports-360 datasets, place all the frames together in a single folder.
+Download the TSC360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. TSV360 Dataset.
+After extracting the frames from both the VR-Eyetracking and Sports-360 datasets, place all subfolders (named by video, each containing its respective frames) into a single folder.
 
 ### Training stage
 To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (downloaded from Zenodo) and the extracted frames `path_to_erp_frames` (folder created in the above Dataset Preparation subsection) then run the following command:
