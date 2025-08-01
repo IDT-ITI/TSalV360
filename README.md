@@ -45,7 +45,7 @@ This repository implements TSalV360, a method for text-guided saliency detection
 
 ### Dataset Preparation
 
-Download the TSC360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. TSV360 Dataset.
+Download the TSV360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. TSV360 Dataset.
 After extracting the frames from both the VR-Eyetracking and Sports-360 datasets, place all subfolders (named by video, each containing its respective frames) into a single folder.
 
 ### Training stage
@@ -57,7 +57,7 @@ python train.py
 
 ### Inference stage
 
-To use a trained model—or a provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—you need to provide the following as input parameters:
+To use a trained model—or the provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—pass the model checkpoint, 360-degree video path, and a corresponding text description as input parameters to the following command:
 
 ```
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
