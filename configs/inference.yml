@@ -1,0 +1,33 @@
+Config: 'TSalV360_inference'
+
+wandb:
+    project: "TSalV360"
+phase:
+    name: 'test'
+network:
+    backbone: CLIP
+    resume: "/m2/ioankont/test/TSalV360.pt"
+
+    VSTCA:
+        depth: 1
+        num_heads: 8
+        mlp_dim: 4
+        ff_dropout: 0.2
+        attn_dropout: 0.2
+        multihead: True
+
+        new_posemb: True
+
+    decoder:
+        mode: tangent  # erp | hybrid | tangent
+        norm_layer: layernorm  # layernorm | none
+
+save: "C:/Users/ioankont/PycharmProjects/Text-Guided-360-saliency/model"
+
+tangent_images:
+    fov: 80
+    nrows: 4
+    npatches: 18
+
+    patch_size:
+        e2p: [224, 224]
