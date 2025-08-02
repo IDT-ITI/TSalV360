@@ -1,7 +1,7 @@
 # TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos
 
 * Written by Ioannis Kontostathis, Evlampios Apostolidis, Vasileios Mezaris
-* The TSV360 can be used for training and evaluating deep-learning models for text guided 360-degree video saliency task. 
+* The TSV360 dataset can be used for training and evaluating deep-learning models for text guided 360-degree video saliency task. 
 * Our approach, TSalV360 can be used for forming the basis for future comparisons in the field of text-driven 360-degree video saliency detection.
 
 ## Installation
@@ -49,7 +49,7 @@ Download the TSV360 dataset—which includes the generated ground-truth saliency
 After extracting the frames from both the VR-Eyetracking and Sports-360 datasets, place all subfolders (named by video, each containing its respective frames) into a single folder.
 
 ### Training stage
-To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (downloaded from Zenodo) and the extracted frames `path_to_erp_frames` (folder created in the above Dataset Preparation subsection) then run the following command:
+To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (path inside the TSV360_gt folder downloaded from Zenodo) and the folder containing the extracted frames for each video `path_to_erp_frames` (created in the above Dataset Preparation subsection), then run the following command:
 
 ```
 python train.py
@@ -57,7 +57,7 @@ python train.py
 
 ### Inference stage
 
-To use a trained model—or the provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—pass the model checkpoint, 360-degree video path, and a corresponding text description as input parameters to the following command:
+To use a trained model—or the provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—pass the model checkpoint, the ERP-format 360-degree video path, and a corresponding text description as input parameters to the following command:
 
 ```
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
