@@ -29,11 +29,11 @@ Finally, we perform manual curation to validate and refine the generated content
 
 To download the TSV360 dataset:
 
-*	For the original videos source from VR-Eyetracking dataset, you can download them by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
+*	For the original videos from the VR-Eyetracking dataset, download them by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
 ``` 
 python dataset/frames_extractor.py --videos_path="path_to_videos"
 ```
-* For the original videos source from Sports-360 dataset, you can download them from [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/sports360.json). The Sports-360 data are already provided as '.jpg' files (frame-level).
+* For the original videos from the Sports-360 dataset, download them by following the instructions [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/sports360.json). The Sports-360 data are already provided as '.jpg' files (frame-level).
 
 * The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)(zenodo link)
 
