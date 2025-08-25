@@ -29,7 +29,7 @@ Finally, we perform manual curation to validate and refine the generated content
 
 To download the TSV360 dataset:
 
-*	For the original videos from the VR-Eyetracking dataset, download them by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
+*	For the original videos from the VR-EyeTracking dataset, download them by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
 ``` 
 python dataset/frames_extractor.py --videos_path="path_to_videos"
 ```
@@ -46,7 +46,7 @@ This repository implements TSalV360, a method for text-guided saliency detection
 ### Dataset Preparation
 
 Download the TSV360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. TSV360 Dataset.
-After extracting the frames from both the VR-Eyetracking and Sports-360 datasets, place all subfolders (named by video, each containing its respective frames) into a single folder.
+After extracting the frames from both the VR-EyeTracking and Sports-360 datasets, place all subfolders (named by video, each containing its respective frames) into a single folder.
 
 ### Training stage
 To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (path inside the TSV360_gt folder downloaded from Zenodo) and the folder containing the extracted frames for each video `path_to_erp_frames` (created in the above Dataset Preparation subsection), then run the following command:
