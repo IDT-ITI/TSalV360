@@ -77,7 +77,7 @@ This software is provided by the authors "as is" and any express or implied warr
   author={Kontostathis, Ioannis
     and Apostolidis, Evlampios
     and Mezaris, Vasileios},
-  note={Under review at CBMI 2025, MMIXR Special Session},
+  note={Under review at CBMI 2025, MmIXR Special Session},
   year={2025}}
 }
 ````
