@@ -27,7 +27,7 @@ For each 2D segment, we extract and assign event-specific saliency maps derived 
 These 2D video segments are then passed through a video-language model to generate textual descriptions that capture the depicted events.
 Finally, we perform manual curation to validate and refine the generated content, resulting in triplets of ERP frames, saliency maps, and text descriptions—each aligned to a specific event within the 360-degree video.
 
-To download the dataset:
+To download the TSV360 dataset:
 
 *	For the original videos source from VR-Eyetracking dataset, you can download them by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
 ``` 
