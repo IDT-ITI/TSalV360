@@ -33,7 +33,7 @@ To download the dataset:
 ``` 
 python dataset/frames_extractor.py --videos_path="path_to_videos"
 ```
-* For the original videos source from Sports-360 dataset, you can download them from [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/sports360.json). The Sports-360 data are already in '.jpg' files.
+* For the original videos source from Sports-360 dataset, you can download them from [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/sports360.json). The Sports-360 data are already provided as '.jpg' files (frame-level).
 
 * The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)(zenodo link)
 
