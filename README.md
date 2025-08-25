@@ -19,12 +19,16 @@ conda activate tsalv360
 
 TSV360 is a dataset for text guided 360-degree video saliency detection.
 It comprises 160 videos, each up to 60 seconds in duration, sourced from the benchmark saliency datasets VR-EyeTracking and Sports-360. The dataset covers a wide and diverse range of visual content, including indoor and outdoor scenes, sports events, and short films.
+
 We constructed the dataset as follows:
+
 We utilize ERP frames and their corresponding ground-truth saliency maps from the original datasets. An algorithm processes these inputs to generate multiple 2D video segments, each centered on different events within the same panoramic scene.
 For each 2D segment, we extract and assign event-specific saliency maps derived from the original ground-truth data, enabling attention localization.
 These 2D video segments are then passed through a video-language model to generate textual descriptions that capture the depicted events.
 Finally, we perform manual curation to validate and refine the generated content, resulting in triplets of ERP frames, saliency maps, and text descriptions—each aligned to a specific event within the 360-degree video.
+
 To download the dataset:
+
 *	For the original videos source from VR-Eyetracking dataset, you can download the videos following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
 ``` 
 python dataset/frames_extractor.py --videos_path="path_to_videos"
