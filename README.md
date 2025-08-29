@@ -46,10 +46,10 @@ This section provides details on how to setup the data of our TSV360 dataset in 
 
 ### Dataset Preparation
 
-After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), place all folders and subfolders according to the following structure:
+After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), place all video folders in a single directory, according to the following structure:
 
 ```Text
-/Parent Directory
+/SingleDirectory  <-- all video folders go here
     /video_name_0
         /0000.jpg
         ...
@@ -65,7 +65,7 @@ To train a model, please edit the [train.yml](configs/train.yml) file, by updati
 python train.py
 ```
 
-Training is performed following the 5-fold cross validation approach. After the end of the training stage in each of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set. A checkpoint is saved at the end of each fold inside the 'model' folder. The evaluation results, including metrics and losses, are recorded in a log file named evaluation_logs.txt, located in the TSalV360 directory.
+Training is performed following the 5-fold cross validation approach. After the end of the training stage in each of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set. A checkpoint is saved at the end of each fold inside the `model` folder. The evaluation results, including metrics and losses, are recorded in a log file named evaluation_logs.txt, located in the TSalV360 directory.
 ### Inference stage
 
 To use your own trained model — or the provided [pretrained TSalV360 model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing) — set the path to the model's checkpoint, the path to the ERP-formatted 360-degrees video, the input text, and the path to the folder where the generated saliency maps will be saved, as parameters to the following command:
