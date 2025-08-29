@@ -85,7 +85,7 @@ BibTex:
     and Mezaris, Vasileios},
   booktitle={2025 International Conference on Content-Based Multimedia Indexing (CBMI)},
   year={2025},
-  organization={IEEE}}
+  organization={IEEE}
 }
 ````
 ## Acknowledgements
