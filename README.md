@@ -74,7 +74,7 @@ This software is provided by the authors "as is" and any express or implied warr
 ## Citation
 If you find our work, code or trained models useful in your work, please cite the following publication:
 
-I. Kontostathis, E. Apostolidis, V. Mezaris, "TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos", IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Special Session on Multimedia Indexing for XR Dublin, Dublin, Ireland, Oct. 2025.
+I. Kontostathis, E. Apostolidis, V. Mezaris, "TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos", IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Special Session on Multimedia Indexing for XR (MmIXR), Dublin, Ireland, Oct. 2025.
 
 BibTex:
 ````
