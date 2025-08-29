@@ -78,13 +78,14 @@ I. Kontostathis, E. Apostolidis, V. Mezaris, "TSalV360: A Method and Dataset for
 
 BibTex:
 ````
-@misc{tsalv360,
+@inproceedings{kontostathisTSalV360,
   title={TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos},
   author={Kontostathis, Ioannis
     and Apostolidis, Evlampios
     and Mezaris, Vasileios},
-  note={Under review at CBMI 2025, MmIXR Special Session},
-  year={2025}}
+  booktitle={2025 International Conference on Content-Based Multimedia Indexing (CBMI)},
+  year={2025},
+  organization={IEEE}}
 }
 ````
 ## Acknowledgements
