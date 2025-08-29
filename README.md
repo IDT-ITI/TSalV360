@@ -44,7 +44,7 @@ In case you have troubles accessing any of the above, please contant us at ioank
 
 This section provides details on how to setup the data of our TSV360 dataset in order to train and evaluate our TSalV360 method for text-driven 360-degrees video saliency detection.
 
-### Dataset Preparation
+### Data preparation
 
 After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), create a folder that contains all the subfolders with the video frames, as shown in the following structure:
 
@@ -59,7 +59,7 @@ Folder             <-- top-level folder
     ...
 ```
 
-### Training stage
+### Training and evaluation
 To train a model, please edit the [train.yml](configs/train.yml) file, by updating: a) `path_text_saliency_maps` to link to the generated "TSV360_gt" folder after unpacking the **TSV360_gr.rar** file from Zenodo, and b) `path_to_erp_frames` to link to the folder containing the subfolders with the frames of each video. Then, please run the following command:
 
 ```
