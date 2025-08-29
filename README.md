@@ -1,8 +1,12 @@
 # TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos
 
-* Written by Ioannis Kontostathis, Evlampios Apostolidis, Vasileios Mezaris
-* The TSV360 dataset can be used for training and evaluating deep-learning models for text guided 360-degree video saliency task. 
-* Our approach, TSalV360 can be used for forming the basis for future comparisons in the field of text-driven 360-degree video saliency detection.
+* This repository provides code and trained models from our paper "TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos", by Ioannis Kontostathis, Evlampios Apostolidis and Vasileios Mezaris, accepted for publication in the Proceedings of the IEEE Int. Conf. on Multimedia Indexing for XR (CBMI 2025), Special Session on Multimedia Indexing for XR Dublin, Ireland, Oct. 2025.
+* This software can be used to train our text-driven 360-degree video saliency detection model. We provide the TSV360 dataset, which was constructed for training and evaluating deep-learning models on the text-driven 360-degree video saliency task. Once trained, the model takes a text prompt and a 360-degree video in ERP frames as input, and generates saliency maps based on the given description.
+* This repository includes:
+  * Installation instructions for cloning the repository
+  * Details on how we constructed the TSV360 dataset and how to download it
+  * Instructions on how to train and run inference with the TSV360 model
+  * Other details (license, citation, acknowledgements)
 
 ## Installation
 To generate the TSV360 dataset and/or use the TSalV360 approach, first clone the repository:
@@ -17,15 +21,12 @@ conda activate tsalv360
 ```
 ## A. TSV360 Dataset
 
-TSV360 is a dataset for text guided 360-degree video saliency detection.
+TSV360 is a dataset for text-driven 360-degree video saliency detection.
 It comprises 160 videos, each up to 60 seconds in duration, sourced from the benchmark saliency datasets VR-EyeTracking and Sports-360. The dataset covers a wide and diverse range of visual content, including indoor and outdoor scenes, sports events, and short films.
 
 We constructed the dataset as follows:
-
-We utilize ERP frames and their corresponding ground-truth saliency maps from the original datasets. An algorithm processes these inputs to generate multiple 2D video segments, each centered on different events within the same panoramic scene.
-For each 2D segment, we extract and assign event-specific saliency maps derived from the original ground-truth data, enabling attention localization.
-These 2D video segments are then passed through a video-language model to generate textual descriptions that capture the depicted events.
-Finally, we perform manual curation to validate and refine the generated content, resulting in triplets of ERP frames, saliency maps, and text descriptions—each aligned to a specific event within the 360-degree video.
+We utilized EquiRectangular Projection (ERP) frames and their corresponding ground-truth saliency maps from the original datasets. An algorithm processed these inputs to generate multiple 2D video segments, each centered on different events within the same panoramic scene. For each 2D segment, we extracted and assigned event-specific saliency maps derived from the original ground-truth data. Following, these 2D video segments passed through a state-of-the-art video-language model (LlaVA-Next-7B) to generate textual descriptions that capture the depicted events.
+Finally, we manually curated the generated content to validate and refine it, resulting in 160 videos in total. For each video, there are multiple triplets of ERP frames, saliency maps, and text descriptions, each corresponding to a different event.
 
 To download the TSV360 dataset:
 
@@ -41,7 +42,7 @@ If you are unable to download any of them, contant us at ioankont@iti.gr.
 
 ## B. TSalV360 approach
 
-This repository implements TSalV360, a method for text-guided saliency detection in 360-degree videos. It includes the full TSalV360 architecture along with the setup required to train and evaluate the model.
+This section implements TSalV360, a method for text-driven saliency detection in 360-degree videos. It includes the full TSalV360 architecture along with the setup required to train and evaluate the model.
 
 ### Dataset Preparation
 
@@ -57,7 +58,7 @@ python train.py
 
 ### Inference stage
 
-To use a trained model—or the provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—pass the model checkpoint, the ERP-format 360-degree video path, and a corresponding text description as input parameters to the following command:
+To use your own trained model—or the provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—pass the model checkpoint, the ERP-format 360-degree video path, and a corresponding text description as input parameters to the following command:
 
 ```
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
@@ -71,6 +72,11 @@ Redistributions of source code must retain the above copyright notice, this list
 This software is provided by the authors "as is" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the authors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
 
 ## Citation
+If you find our work, code or trained models useful in your work, please cite the following publication:
+
+I. Kontostathis, E. Apostolidis, V. Mezaris, "TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos", IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Special Session on Multimedia Indexing for XR Dublin, Dublin, Ireland, Oct. 2025.
+
+BibTex:
 ````
 @misc{tsalv360,
   title={TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos},
