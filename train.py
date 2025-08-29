@@ -32,7 +32,7 @@ def init_log_file(log_path, config_dict):
         for key, value in config_dict.items():
             f.write(f"{key}: {value}\n")
         f.write("=== Training Log ===\n")
-def log_epoch(log_path, fold, epoch, train_loss, val_loss, cc, sim, kld, kld2, epoch_time):
+def log_eval(log_path, fold, epoch, train_loss, val_loss, cc, sim, kld, kld2, epoch_time):
     with open(log_path, 'a') as f:
         line = (
             f"Training fold {fold}\t"
@@ -189,14 +189,14 @@ def train(model,fold, train_dataset, test_dataset, batch_size, load_gt,epochs, l
         end_time = time.time()
         print("Train Loss", avg_loss_train / clip_counter)
         print("total epoch time", end_time - start_time)
-        log_epoch(log_path, fold, epoch, avg_loss_train / clip_counter,  np.mean(cc_list), np.mean(sim_list), np.mean(kld_list), np.mean(kld2_list), end_time - start_time)
+        log_eval(log_path, fold, epoch, avg_loss_train / clip_counter,  np.mean(cc_list), np.mean(sim_list), np.mean(kld_list), np.mean(kld2_list), end_time - start_time)
 
 
 if __name__ == '__main__':
 
     DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     config_fn = 'configs/train.yml'
-    log_path = "training_logs.txt"
+    log_path = "evaluation_logs.txt"
     config = DotMap(yaml.safe_load(open(config_fn, 'r')))
 
     init_log_file(log_path, config)
