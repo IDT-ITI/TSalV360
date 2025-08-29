@@ -6,7 +6,7 @@
   * Installation instructions for cloning the repository.
   * Details on how we constructed the TSV360 dataset and how to download it.
   * Instructions on how to train and run the TSalV360 method for text-driven 360-degrees video saliency detection.
-  * Other details (license, citation, acknowledgements)
+  * Other details (license, citation, acknowledgements).
 
 ## Installation
 To generate the TSV360 dataset and/or use the TSalV360 method, first clone the repository:
