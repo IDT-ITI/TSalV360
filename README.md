@@ -1,6 +1,6 @@
 # TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos
 
-* This repository provides code, dataset usage instructions, and trained model from our paper "TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos", written by Ioannis Kontostathis, Evlampios Apostolidis and Vasileios Mezaris, and accepted for publication in the Proceedings of the IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Dublin, Ireland, Oct. 2025.
+* This repository provides code, dataset usage instructions, and trained model from our paper **"TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos"**, written by Ioannis Kontostathis, Evlampios Apostolidis and Vasileios Mezaris, and accepted for publication in the Proceedings of the IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Dublin, Ireland, Oct. 2025.
 * This software can be used to train our text-driven 360-degree video saliency detection model, TSalV360. We provide the TSV360 dataset, which was constructed for training and evaluating deep-learning models on the text-driven 360-degree video saliency task. Once trained, the model takes a text prompt and a 360-degree video in ERP frames as input, and generates saliency maps based on the given description.
 * This repository includes:
   * Installation instructions for cloning the repository
