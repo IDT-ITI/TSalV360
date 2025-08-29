@@ -1,15 +1,15 @@
 # TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos
 
 * This repository provides code, dataset usage instructions, and trained model from our paper **"TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos"**, written by Ioannis Kontostathis, Evlampios Apostolidis and Vasileios Mezaris, and accepted for publication in the Proceedings of the IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Dublin, Ireland, Oct. 2025.
-* This software can be used to train our text-driven 360-degree video saliency detection model, TSalV360. We provide the TSV360 dataset, which was constructed for training and evaluating deep-learning models on the text-driven 360-degree video saliency task. Once trained, the model takes a text prompt and a 360-degree video in ERP frames as input, and generates saliency maps based on the given description.
+* This software can be used to train our TSalV360 method for text-driven 360-degrees video saliency detection. We provide the TSV360 dataset, which was constructed for training and evaluating deep-learning models on the text-driven 360-degree video saliency task. Once trained, the model takes a text prompt and a 360-degree video in ERP frames as input, and generates saliency maps based on the given description.
 * This repository includes:
-  * Installation instructions for cloning the repository
-  * Details on how we constructed the TSV360 dataset and how to download it
-  * Instructions on how to train and run inference with the TSV360 model
+  * Installation instructions for cloning the repository.
+  * Details on how we constructed the TSV360 dataset and how to download it.
+  * Instructions on how to train and run the TSalV360 method for text-driven 360-degrees video saliency detection.
   * Other details (license, citation, acknowledgements)
 
 ## Installation
-To generate the TSV360 dataset and/or use the TSalV360 approach, first clone the repository:
+To generate the TSV360 dataset and/or use the TSalV360 method, first clone the repository:
 ```
 git clone https://github.com/IDT-ITI/TSalV360
 ```
@@ -26,20 +26,19 @@ It contains textual descriptions and the associated ground-truth saliency maps, 
 
 We constructed the dataset as follows:
 
-We utilized EquiRectangular Projection (ERP) frames and their corresponding ground-truth saliency maps from the original datasets. An algorithm processed these inputs to generate multiple 2D video segments, each centered on different events within the same panoramic scene. For each 2D segment, we extracted and assigned event-specific saliency maps derived from the original ground-truth data. Following, these 2D video segments passed through a state-of-the-art video-language model (LlaVA-Next-7B) to generate textual descriptions that capture the depicted events.
-Finally, we manually curated the generated content to validate and refine it, resulting in 160 videos in total. For each video, there are multiple triplets of ERP frames, saliency maps, and text descriptions, each corresponding to a different event.
+We utilized EquiRectangular Projection (ERP) frames and their corresponding ground-truth saliency maps from the original datasets. An algorithm processed these inputs to generate multiple 2D video segments, each centered on different events within the same panoramic scene. For each 2D segment, we extracted and assigned event-specific saliency maps derived from the original ground-truth data. Following, these 2D video segments passed through a state-of-the-art video-language model (LlaVA-Next-7B) to generate textual descriptions that capture the depicted events. Finally, we manually curated the generated content to validate and refine it, resulting in 160 videos in total. For each video, there are multiple triplets of ERP frames, saliency maps, and text descriptions, each corresponding to a different event.
 
-To download the TSV360 dataset:
+To obtain the data of the TSV360 dataset:
 
-*	For the original videos from the VR-EyeTracking dataset, download them by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/vreyetracking.json). To extract frames from the VR-EyeTracking videos, run the following command:
+*	Download the original videos from the VR-EyeTracking dataset, by following the instructions [here](https://github.com/xuyanyu-shh/VR-EyeTracking) or [here](https://github.com/mtliba/ATSal/tree/master). The subset of the videos that are included in our TSV360 dataset can be found [here](dataset/vreyetracking.json). To extract frames from these videos, please run the following command:
 ``` 
 python dataset/frames_extractor.py --videos_path="path_to_videos"
 ```
-* For the original videos from the Sports-360 dataset, download them by following the instructions [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). The list of videos from this dataset that are included in TSV360 dataset, can be found [here](dataset/sports360.json). The Sports-360 data are already provided as '.jpg' files (frame-level).
+* Download the frames of the videos from the Sports-360 dataset, by following the instructions [here](https://github.com/vhchuong/Saliency-prediction-for-360-degree-video/tree/main). The subset of the videos that are included in our TSV360 dataset, can be found [here](dataset/sports360.json).
 
-* The generated ground-truth saliency maps with the corresponding text descriptions can be found in the Zenodo link (here)(zenodo link)
+* Download the textual descriptions and the associated ground-truth saliency maps of our TSV360 dataset from Zenodo (here)(zenodo link)
 
-If you are unable to download any of them, contant us at ioankont@iti.gr. 
+In case you have troubles accessing any of the above, please contant us at ioankont@iti.gr. 
 
 ## B. TSalV360 approach
 
