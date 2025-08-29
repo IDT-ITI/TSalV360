@@ -41,8 +41,7 @@ def log_eval(log_path, fold, epoch, train_loss, val_loss, cc, sim, kld, kld2, ep
             f"CC: {cc:.4f}\t"
             f"SIM: {sim:.4f}\t"
             f"KLD: {kld:.4f}\t"
-            f"KLD2: {kld2:.4f}\t"
-            f"Time: {epoch_time:.2f}s\n"
+            f"KLD2: {kld2:.4f}\n"
         )
         f.write(line)
 
