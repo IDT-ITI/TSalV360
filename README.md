@@ -19,7 +19,7 @@ Create and activate Conda environment
 conda env create -f env.yml
 conda activate tsalv360
 ```
-## A. TSV360 Dataset
+## A. The TSV360 dataset
 
 TSV360 is a dataset for training and objective evaluation of text-driven 360-degrees video saliency detection methods.
 It contains textual descriptions and the associated ground-truth saliency maps, for 160 videos (up to 60 seconds long) sourced from the VR-EyeTracking and Sports-360 benchmarking datasets. These datasets cover a wide and diverse range of 360-degrees visual content, including indoor and outdoor scenes, sports events, and short films.
@@ -40,14 +40,24 @@ python dataset/frames_extractor.py --videos_path="path_to_videos"
 
 In case you have troubles accessing any of the above, please contant us at ioankont@iti.gr. 
 
-## B. TSalV360 approach
+## B. The TSalV360 method
 
-This section implements TSalV360, a method for text-driven saliency detection in 360-degree videos. It includes the full TSalV360 architecture along with the setup required to train and evaluate the model.
+This section provides details on how to setup the data of our TSV360 dataset in order to train and evaluate our TSalV360 method for text-driven 360-degrees video saliency detection.
 
 ### Dataset Preparation
 
 Download the TSV360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. TSV360 Dataset.
-After extracting the frames from both the VR-EyeTracking and Sports-360 datasets, place all subfolders (named by video, each containing its respective frames) into a single folder.
+After extracting the frames from both the VR-EyeTracking and Sports-360 datasets, place all folders and subfolders according to the following structure:
+
+```Text
+/Parent Directory
+    /...
+        /...
+            ...
+        ...
+    /...
+        ...
+```
 
 ### Training stage
 To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (path inside the TSV360_gt folder downloaded from Zenodo) and the folder containing the extracted frames for each video `path_to_erp_frames` (created in the above Dataset Preparation subsection), then run the following command:
