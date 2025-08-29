@@ -46,8 +46,7 @@ This section provides details on how to setup the data of our TSV360 dataset in 
 
 ### Dataset Preparation
 
-Download the TSV360 dataset—which includes the generated ground-truth saliency maps, text descriptions, and corresponding ERP frames—by following the instructions in section A. TSV360 Dataset.
-After extracting the frames from both the VR-EyeTracking and Sports-360 datasets, place all folders and subfolders according to the following structure:
+After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset ((following the instructions in Section **A. The TSV360 dataset**), place all folders and subfolders according to the following structure:
 
 ```Text
 /Parent Directory
