@@ -1,7 +1,7 @@
 # TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos
 
 * This repository provides code, dataset usage instructions, and trained model from our paper **"TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos"**, written by Ioannis Kontostathis, Evlampios Apostolidis and Vasileios Mezaris, and accepted for publication in the Proceedings of the IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Dublin, Ireland, Oct. 2025.
-* This software can be used to obtain our TSV360 dataset for training and objective evaluation of methods for text-driven saliency detection in 360-degrees video, and for training our TSalV360 method. After training, this method can be used to find the salient events in a 360-degrees video that are most relevant to a user-provided text, and generate the associated saliency maps for the frames of this video.
+* This software can be used to obtain our TSV360 dataset for training and evaluation of our TSalV360 method for text-driven saliency detection in 360-degrees video, as well as other methods that deal with this task. After training, our TSalV360 method can be used to find the salient events in a 360-degrees video that are most relevant to a user-provided text, and generate the associated saliency maps for the frames of this video.
 * This repository includes:
   * Installation instructions for cloning the repository.
   * Details on how we constructed the TSV360 dataset and how to download it.
@@ -46,10 +46,10 @@ This section provides details on how to setup the data of our TSV360 dataset in 
 
 ### Dataset Preparation
 
-After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), create a single folder and place all video subfolders inside, as shown in the following structure:
+After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), create a folder that contains all the subfolders with the video frames, as shown in the following structure:
 
 ```Text
-SingleFolder             <-- top-level folder
+Folder             <-- top-level folder
     /video_subfolder_1   <-- subfolder containing frames of video named 001
         /0000.jpg
         ...
@@ -66,7 +66,8 @@ To train a model, please edit the [train.yml](configs/train.yml) file, by updati
 python train.py
 ```
 
-Training is performed following the 5-fold cross validation approach. After the end of the training stage in each of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set. A checkpoint is saved at the end of each fold inside the `model` folder. The evaluation results, including metrics and losses, are recorded in a log file named evaluation_logs.txt, located in the TSalV360 directory.
+Training is performed following the 5-fold cross validation approach. After the end of the training stage using each one of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set, and a checkpoint is saved inside the `model` folder. The overall evaluation results, including metrics and losses, are stored in a log file named "evaluation_logs.txt", that is located in the TSalV360 directory.
+
 ### Inference stage
 
 To use your own trained model — or the provided [pretrained TSalV360 model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing) — set the path to the model's checkpoint, the path to the ERP-formatted 360-degrees video, the input text, and the path to the folder where the generated saliency maps will be saved, as parameters to the following command:
@@ -75,7 +76,7 @@ To use your own trained model — or the provided [pretrained TSalV360 model](ht
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description" --output_path="path_to_save_generated_saliency_maps"
 ```
 
-The output consists of saliency maps for the video frames, saved as .png files in the folder specified above.
+The output consists of saliency maps for the video frames of the input video, that are saved as .png files in the folder specified above.
 
 ## Licence
 
