@@ -50,12 +50,12 @@ After downloading the TSV360 dataset and extracting the frames from the utilized
 
 ```Text
 /Parent Directory
-    /...
-        /...
-            ...
+    /video_name_0
+        /0000.jpg
         ...
-    /...
-        ...
+    /video_name_1
+        /0000.jpg
+    ...
 ```
 
 ### Training stage
@@ -65,17 +65,16 @@ To train a model, please edit the [train.yml](configs/train.yml) file, by updati
 python train.py
 ```
 
-Training is performed following the 5-fold cross validation approach. After the end of the training stage in each of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set. The overall outcome of this evaluation is stored in a log file, that is placed at
-
+Training is performed following the 5-fold cross validation approach. After the end of the training stage in each of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set. A checkpoint is saved at the end of each fold inside the 'model' folder. The evaluation results, including metrics and losses, are recorded in a log file named evaluation_logs.txt, located in the TSalV360 directory.
 ### Inference stage
 
-To use your own trained model — or the provided [pretrained TSalV360 model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing) — set the path to the model's checkpoint, the path to the ERP-formatted 360-degrees video, and the input text, as parameters to the following command:
+To use your own trained model — or the provided [pretrained TSalV360 model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing) — set the path to the model's checkpoint, the path to the ERP-formatted 360-degrees video, the input text, and the path to the folder where the generated saliency maps will be saved, as parameters to the following command:
 
 ```
-python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
+python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description" --output_path="path_to_save_generated_saliency_maps"
 ```
 
-The output of this process, contains...
+The output consists of saliency maps for the video frames, saved as .png files in the folder specified above.
 
 ## Licence
 
