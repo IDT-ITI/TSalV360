@@ -1,7 +1,7 @@
 # TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos
 
 * This repository provides code, dataset usage instructions, and trained model from our paper **"TSalV360: A Method and Dataset for Text-driven Saliency Detection in 360-Degrees Videos"**, written by Ioannis Kontostathis, Evlampios Apostolidis and Vasileios Mezaris, and accepted for publication in the Proceedings of the IEEE Int. Conf. on Content-Based Multimedia Indexing (CBMI 2025), Dublin, Ireland, Oct. 2025.
-* This software can be used to train our TSalV360 method for text-driven 360-degrees video saliency detection. We provide the TSV360 dataset, which was constructed for training and evaluating deep-learning models on the text-driven 360-degree video saliency task. Once trained, the model takes a text prompt and a 360-degree video in ERP frames as input, and generates saliency maps based on the given description.
+* This software can be used to obtain our TSV360 dataset for training and objective evaluation of methods for text-driven saliency detection in 360-degrees video, and for training our TSalV360 method. After training, this method can be used to find the salient events in a 360-degrees video that are most relevant to a user-provided text, and generate the associated saliency maps for the frames of this video.
 * This repository includes:
   * Installation instructions for cloning the repository.
   * Details on how we constructed the TSV360 dataset and how to download it.
@@ -46,7 +46,7 @@ This section provides details on how to setup the data of our TSV360 dataset in 
 
 ### Dataset Preparation
 
-After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset ((following the instructions in Section **A. The TSV360 dataset**), place all folders and subfolders according to the following structure:
+After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), place all folders and subfolders according to the following structure:
 
 ```Text
 /Parent Directory
@@ -59,19 +59,24 @@ After downloading the TSV360 dataset and extracting the frames from the utilized
 ```
 
 ### Training stage
-To train a model, edit train.yml file [here](configs/train.yml) by updating the paths to the `path_text_saliency_maps` (path inside the TSV360_gt folder downloaded from Zenodo) and the folder containing the extracted frames for each video `path_to_erp_frames` (created in the above Dataset Preparation subsection), then run the following command:
+To train a model, please edit the [train.yml](configs/train.yml) file, by updating: a) `path_text_saliency_maps` to link to the generated "TSV360_gt" folder after unpacking the **TSV360_gr.rar** file from Zenodo, and b) `path_to_erp_frames` to link to the folder containing the subfolders with the frames of each video. Then, please run the following command:
 
 ```
 python train.py
 ```
 
+Training is performed following the 5-fold cross validation approach. After the end of the training stage in each of the 5 folds, the performance of the trained model is evaluated on the videos of the associated test set. The overall outcome of this evaluation is stored in a log file, that is placed at
+
 ### Inference stage
 
-To use your own trained model—or the provided [pretrained model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing)—pass the model checkpoint, the ERP-format 360-degree video path, and a corresponding text description as input parameters to the following command:
+To use your own trained model — or the provided [pretrained TSalV360 model](https://drive.google.com/file/d/1oMyNRPtgtDMHkCpttPXaSyGj45CG8HS-/view?usp=sharing) — set the path to the model's checkpoint, the path to the ERP-formatted 360-degrees video, and the input text, as parameters to the following command:
 
 ```
 python inference.py --model_path="path_to_model" --video_path="path_to_video" --text_input="text_description"
 ```
+
+The output of this process, contains...
+
 ## Licence
 
 This code is provided for academic, non-commercial use only. Please also check for any restrictions applied in the code parts and datasets used here from other sources. For the materials not covered by any such restrictions, redistribution and use in source and binary forms, with or without modification, are permitted for academic non-commercial use provided that the following conditions are met:
@@ -92,7 +97,7 @@ BibTex:
   author={Kontostathis, Ioannis
     and Apostolidis, Evlampios
     and Mezaris, Vasileios},
-  booktitle={2025 International Conference on Content-Based Multimedia Indexing (CBMI)},
+  booktitle={2025 Int. Conf. on Content-Based Multimedia Indexing (CBMI)},
   year={2025},
   organization={IEEE}
 }
