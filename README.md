@@ -49,11 +49,11 @@ This section provides details on how to setup the data of our TSV360 dataset in 
 After downloading the TSV360 dataset and extracting the frames from the utilized videos of the VR-EyeTracking dataset (following the instructions in Section **A. The TSV360 dataset**), create a single folder and place all video folders inside, as shown in the following structure:
 
 ```Text
-/SingleFolder
-    /video_name_0
+/SingleFolder <-- top-level folder
+    /video_folder_1  <-- contains frames of video named 001
         /0000.jpg
         ...
-    /video_name_1
+    /video_folder_2 <-- contains frames of video named 002
         /0000.jpg
         ...
     ...
