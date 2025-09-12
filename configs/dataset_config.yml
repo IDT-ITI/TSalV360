@@ -8,10 +8,9 @@ videoclip:
 
   overlap: 8
   root: C:/Users/ioankont/PycharmProjects/SalViT360-main (1)/SalViT360-main
-  gt_fps_dict: /home/mertcokelek/OmniSal/saliency/dataset/vreyetracking/preprocessed_16fps_2K_fps_dict_according_to_gts.pkl
 
 
-w: 1920  # For OmniSal, we used 1920x960.
+w: 1920 
 h: 960
 
 path_gts: "D:\Program Files\IoanProjects\Vrdata3\fixation"
